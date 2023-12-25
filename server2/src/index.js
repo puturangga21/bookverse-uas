@@ -17,8 +17,8 @@ app.get('/api', (req, res) => {
 
 app.use('/api/book', bookController);
 
+// connection
 database();
-
 app.listen(PORT, () => {
   console.log(`Connected to port ${PORT} ...`);
 });
