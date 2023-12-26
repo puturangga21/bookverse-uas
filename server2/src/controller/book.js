@@ -8,10 +8,7 @@ router.get('/', async (req, res) => {
   try {
     const product = await Book.find({});
 
-    res.status(200).send({
-      message: 'Data berhasil ditemukan',
-      data: product,
-    });
+    res.status(200).send(product);
   } catch (error) {
     res.status(400).send({
       message: 'Data gagal ditemukan',
@@ -26,10 +23,7 @@ router.get('/:id', async (req, res) => {
     const reqId = req.params.id;
     const product = await Book.findById(reqId);
 
-    res.status(200).send({
-      message: 'Data berhasil ditemukan',
-      data: product,
-    });
+    res.status(200).send(product);
   } catch (error) {
     res.status(400).send({
       message: 'Data gagal ditemukan',
