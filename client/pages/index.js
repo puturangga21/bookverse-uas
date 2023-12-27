@@ -1,17 +1,13 @@
-import Head from "next/head";
-
-import Header from "@/components/Header";
-import TopCards from "@/components/TopCards";
+// formik -> handle form
+// yup -> validation
+// axios -> handle API
+// react-query -> manage API calls
 
 export default function Home() {
   return (
     <>
-      <Head>
-        <title>BookVerse | Home</title>
-      </Head>
       <main className="min-h-screen bg-gray-100">
-        <Header />
-        <TopCards />
+        Home BookVerse Client Side
       </main>
     </>
   );

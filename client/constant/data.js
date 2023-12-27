@@ -180,32 +180,28 @@ export const dataMember = [
 
 export const kolomBuku = [
   {
-    key: 'judul_buku',
-    label: 'Judul Buku',
+    key: 'authorName',
+    label: 'Author Name',
   },
   {
-    key: 'cover_buku',
-    label: 'Cover Buku',
+    key: 'bookTitle',
+    label: 'Book Title',
   },
   {
-    key: 'penulis_buku',
-    label: 'Penulis Buku',
+    key: 'bookDescription',
+    label: 'Book Description',
   },
   {
-    key: 'bahasa_buku',
-    label: 'Bahasa Buku',
+    key: 'bookPdfUrl',
+    label: 'PDF URL',
   },
   {
-    key: 'penerbit_buku',
-    label: 'Penerbit Buku',
+    key: 'category',
+    label: 'Category',
   },
   {
-    key: 'tahun_terbit_buku',
-    label: 'Tahun Terbit Buku',
-  },
-  {
-    key: 'jumlah_halaman',
-    label: 'Halaman',
+    key: 'imgUrl',
+    label: 'Image',
   },
   {
     key: 'aksi',

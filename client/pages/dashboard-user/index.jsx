@@ -1,4 +1,5 @@
 import Header from '@/components/Header';
+import Sidebar from '@/components/Sidebar';
 import { Card, CardBody, CardFooter, Image } from '@nextui-org/react';
 
 export default function MemberPage() {
@@ -78,3 +79,11 @@ export default function MemberPage() {
     </section>
   );
 }
+
+MemberPage.getLayout = function getLayout(page) {
+  return (
+    <>
+      <Sidebar>{page}</Sidebar>
+    </>
+  );
+};
