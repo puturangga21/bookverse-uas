@@ -1,58 +1,38 @@
 import Header from '@/components/Header';
 import Sidebar from '@/components/Sidebar';
 import { Card, CardBody, CardFooter, Image } from '@nextui-org/react';
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 
 export default function MemberPage() {
   const list = [
     {
-      title: 'The Cruel Prince',
-      img: 'https://covers.openlibrary.org/b/id/8361789-M.jpg',
-      price: '2018',
-    },
-    {
-      title: 'Atomic Habits',
-      img: 'https://covers.openlibrary.org/b/olid/OL27918581M-M.jpg',
-      price: '2018',
-    },
-    {
-      title: 'The Immortal Life of Henrietta Lacks',
-      img: 'https://covers.openlibrary.org/b/olid/OL24523817M-M.jpg',
-      price: '2009',
-    },
-    {
-      title: 'Inside the Java virtual machine',
-      img: 'https://covers.openlibrary.org/b/olid/OL694492M-M.jpg',
-      price: '1998',
-    },
-    {
-      title: 'Married at first sight',
-      img: 'https://covers.openlibrary.org/b/id/14312142-M.jpg',
-      price: '2015',
-    },
-    {
-      title: 'Public relations',
-      img: 'https://covers.openlibrary.org/b/id/13512100-M.jpg',
-      price: '2004',
-    },
-    {
-      title: 'Barn owl',
-      img: 'https://covers.openlibrary.org/b/id/8281820-L.jpg',
-      price: '1978',
-    },
-    {
-      title: 'Snow Falling on Cedars',
-      img: 'https://covers.openlibrary.org/w/id/13108904-M.jpg',
-      price: '1994',
+      bookName: 'The Cruel Prince',
+      imgUrl: 'https://covers.openlibrary.org/b/id/8361789-M.jpg',
+      category: '2018',
     },
   ];
+
+  const [dataBook, setDataBook] = useState([]);
+
+  const getBooks = async () => {
+    const res = await axios.get(
+      `https://bookverse-uas-api.vercel.app/api/book`,
+    );
+    setDataBook(res.data);
+  };
+
+  useEffect(() => {
+    getBooks();
+  });
 
   return (
     <section className="min-h-screen bg-gray-100">
       <Header />
 
       <div className="p-4">
-        <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
-          {list.map((item, index) => (
+        <div className="grid grid-cols-2 gap-2 md:grid-cols-7 ">
+          {dataBook.map((item, index) => (
             <Card
               shadow="sm"
               key={index}
@@ -63,14 +43,14 @@ export default function MemberPage() {
                   shadow="sm"
                   radius="lg"
                   width="100%"
-                  alt={item.title}
-                  className="h-[140px] w-full object-cover"
-                  src={item.img}
+                  alt={item.bookTitle}
+                  className="aspect-[3/4] w-full object-cover"
+                  src={item.imgUrl}
                 />
               </CardBody>
               <CardFooter className="justify-between text-small">
-                <b className="text-sky-700">{item.title}</b>
-                <p className="text-default-500">{item.price}</p>
+                <b className="text-sky-700">{item.bookTitle}</b>
+                <p className="text-default-500">{item.category}</p>
               </CardFooter>
             </Card>
           ))}
